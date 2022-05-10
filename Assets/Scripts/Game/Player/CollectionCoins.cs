@@ -1,20 +1,23 @@
-using System;
+using Platformer.Game.Services.Currency;
 using UnityEngine;
+using Zenject;
 
 namespace Platformer.Game.Player
 {
     public class CollectionCoins : MonoBehaviour
     {
-        private int _currenCoins;
-        
-        public int CurrentCoins => _currenCoins;
+        private ICurrencyService _currencyService;
 
-        public event Action OnCoinsChanged;
 
-        public void AddCoin(int coin)
+        [Inject]
+        public void Construct(ICurrencyService currencyService)
         {
-            _currenCoins += coin;
-            OnCoinsChanged?.Invoke();
+            _currencyService = currencyService;
+        }
+
+        public void AddCoin(int coins)
+        {
+            _currencyService.Add(Currency.Coins, coins);
         }
     }
 }

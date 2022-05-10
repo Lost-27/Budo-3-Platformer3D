@@ -1,56 +1,59 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeartBar : MonoBehaviour
+namespace Platformer.Game.UI
 {
-    #region Variables
-
-    [SerializeField] private GameObject _heartCellPrefab;
-    [SerializeField] private Transform _heartsBar;
-
-    private List<GameObject> _maxHearts = new List<GameObject>();
-
-    #endregion
-
-
-    #region Unity lifecycle
-
-    private void Start()
+    public class HeartBar : MonoBehaviour
     {
-        InstantiateHearts();
-        UpdateCells();
-        // GameManager.Instance.OnLivesChanged += UpdateCells;
-    }
+        #region Variables
+
+        [SerializeField] private GameObject _heartCellPrefab;
+        [SerializeField] private Transform _heartsBar;
+
+        private List<GameObject> _maxHearts = new List<GameObject>();
+
+        #endregion
 
 
-    private void OnDestroy()
-    {
-        // GameManager.Instance.OnLivesChanged -= UpdateCells;
-    }
+        #region Unity lifecycle
 
-    #endregion
-
-
-    #region Private methods
-
-    private void InstantiateHearts()
-    {
-        // for (int i = 0; i < GameManager.Instance.MaxLives; i++)
-        // {
-        //     GameObject heart = Instantiate(_heartCellPrefab, _heartsBar);
-        //     _maxHearts.Add(heart);
-        // }
-    }
-
-    private void UpdateCells()
-    {
-        for (int i = 0; i < _maxHearts.Count; i++)
+        private void Start()
         {
-            GameObject heart = _maxHearts[i];
-            // bool isActive = GameManager.Instance.CurrentLives > i;
-            // heart.SetActive(isActive);
+            InstantiateHearts();
+            UpdateCells();
+            // GameManager.Instance.OnLivesChanged += UpdateCells;
         }
-    }
 
-    #endregion
+
+        private void OnDestroy()
+        {
+            // GameManager.Instance.OnLivesChanged -= UpdateCells;
+        }
+
+        #endregion
+
+
+        #region Private methods
+
+        private void InstantiateHearts()
+        {
+            // for (int i = 0; i < GameManager.Instance.MaxLives; i++)
+            // {
+            //     GameObject heart = Instantiate(_heartCellPrefab, _heartsBar);
+            //     _maxHearts.Add(heart);
+            // }
+        }
+
+        private void UpdateCells()
+        {
+            for (int i = 0; i < _maxHearts.Count; i++)
+            {
+                GameObject heart = _maxHearts[i];
+                // bool isActive = GameManager.Instance.CurrentLives > i;
+                // heart.SetActive(isActive);
+            }
+        }
+
+        #endregion
+    }
 }

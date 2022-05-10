@@ -1,15 +1,14 @@
 using System;
 
-namespace TDS.Game.Core
+namespace Platformer.Game.Core
 {
-    public interface IHealth
+    public interface IHealth : IDamageable
     {
         event Action OnChanged;
 
         int CurrentHp { get; }
         int MaxHp { get; }
-
-        void TakeDamage(int damage);
+        
         void AddLife(int healthPoints);
     }
 }

@@ -1,10 +1,10 @@
 using System;
-using TDS.Game.Core;
+using Platformer.Game.Core;
 using UnityEngine;
 
 namespace Platformer.Game.Player
 {
-    public class PlayerHealth : MonoBehaviour, IDamageable, IHealth
+    public class PlayerHealth : MonoBehaviour, IHealth
     {
         #region Variable
 
@@ -30,7 +30,7 @@ namespace Platformer.Game.Player
 
         #region Unity lifecycle
 
-        private void Start()
+        private void Awake()
         {
             CurrentHp = _maxHp;
         }

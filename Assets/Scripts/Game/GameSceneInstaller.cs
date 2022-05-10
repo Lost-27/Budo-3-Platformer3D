@@ -1,4 +1,6 @@
 using Platformer.Game.Logger;
+using Platformer.Game.Services.Currency;
+using Platformer.Game.Services.Pause;
 using Zenject;
 
 namespace Platformer.Game
@@ -8,6 +10,8 @@ namespace Platformer.Game
         public override void InstallBindings()
         {
             GameLoggerInstaller.Install(Container);
+            CurrencyServiceInstaller.Install(Container);
+            PauseServiceInstaller.Install(Container);
         }
     }
 }

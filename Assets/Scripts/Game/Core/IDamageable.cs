@@ -1,4 +1,4 @@
-namespace TDS.Game.Core
+namespace Platformer.Game.Core
 {
     public interface IDamageable
     {
