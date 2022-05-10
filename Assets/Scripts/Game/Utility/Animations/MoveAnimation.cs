@@ -1,10 +1,7 @@
 using DG.Tweening;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Platformer.Game.Objects
+namespace Platformer.Game.Info.Animations
 {
     public class MoveAnimation : MonoBehaviour
     {
@@ -32,7 +29,7 @@ namespace Platformer.Game.Objects
 
             _moveTween = sequence;
         }
-        private void Kill()
+        public void Kill()
         {
             _moveTween.Kill();
         }

@@ -1,3 +1,4 @@
+using Platformer.Game.Info.Animations;
 using Platformer.Game.Player;
 using Platformer.Utility.Constants;
 using UnityEngine;
@@ -7,6 +8,7 @@ namespace Platformer.Game.Objects
     public class Coin : MonoBehaviour
     {
         [SerializeField] private int _pointValue;
+        [SerializeField] private MoveAnimation _moveAnimation;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -15,6 +17,7 @@ namespace Platformer.Game.Objects
             
             CollectionCoins collectionCoins= other.GetComponent<CollectionCoins>();
             collectionCoins.AddCoin(_pointValue);
+            _moveAnimation.Kill();
             Destroy(gameObject);
         }
     }

@@ -2,7 +2,7 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Platformer.Game.Info
+namespace Platformer.Game.Utility.Animations
 {
     [Serializable]
     public abstract class AnimationInfo<TValue>
@@ -15,6 +15,5 @@ namespace Platformer.Game.Info
     [Serializable]
     public class V3AnimationInfo : AnimationInfo<Vector3>
     {
-        
     }
 }

@@ -1,5 +1,5 @@
 using DG.Tweening;
-using Platformer.Game.Info;
+using Platformer.Game.Utility.Animations;
 using UnityEngine;
 
 namespace Platformer.Game.Objects

@@ -1,6 +1,6 @@
 using DG.Tweening;
 using NaughtyAttributes;
-using Platformer.Game.Info;
+using Platformer.Game.Utility.Animations;
 using UnityEngine;
 
 namespace Platformer.Game.Objects
