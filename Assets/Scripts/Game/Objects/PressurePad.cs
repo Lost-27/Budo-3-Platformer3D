@@ -36,7 +36,7 @@ namespace Platformer.Game.Objects
                 Exit();
         }
 
-        [Button()]
+        //[Button()]
         private void Enter()
         {
             _tween?.Kill();
@@ -47,7 +47,7 @@ namespace Platformer.Game.Objects
                 .OnComplete(Open);
         }
 
-        [Button()]
+        //[Button()]
         private void Exit()
         {
             _tween?.Kill();

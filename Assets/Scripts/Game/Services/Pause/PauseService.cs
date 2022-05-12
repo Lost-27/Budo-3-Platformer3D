@@ -46,9 +46,16 @@ namespace Platformer.Game.Services.Pause
             Time.timeScale = IsPaused ? 0 : 1f;
 
             if (IsPaused)
+            {
+                Cursor.lockState = CursorLockMode.None;
                 await _pauseScreen.Show();
+            }
+
             else
+            {
+                Cursor.lockState = CursorLockMode.Locked;
                 await _pauseScreen.Hide();
+            }                
 
             _isUIAnimating = false;
         }

@@ -6,26 +6,12 @@ namespace Platformer.Game.Player
 {
     public class PlayerHealth : MonoBehaviour, IHealth
     {
-        #region Variable
-
         [SerializeField] private int _maxHp;
-
-        #endregion
-
-
-        #region Events
 
         public event Action OnChanged;
 
-        #endregion
-
-
-        #region Properties
-
         public int CurrentHp { get; private set; }
         public int MaxHp => _maxHp;
-
-        #endregion
 
 
         #region Unity lifecycle

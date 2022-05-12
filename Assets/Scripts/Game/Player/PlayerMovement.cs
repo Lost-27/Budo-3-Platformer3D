@@ -36,7 +36,7 @@ namespace Platformer.Game.Player
             _inputService = inputService;
         }
 
-        public void Awake()
+        private void Awake()
         {
             _cachedTransf = transform;
         }
