@@ -1,5 +1,5 @@
 using DG.Tweening;
-using NaughtyAttributes;
+//using NaughtyAttributes;
 using Platformer.Game.Utility.Animations;
 using UnityEngine;
 

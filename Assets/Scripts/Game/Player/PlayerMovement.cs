@@ -6,29 +6,30 @@ namespace Platformer.Game.Player
 {
     public class PlayerMovement : MonoBehaviour
     {
-        [Header("Components")] 
+        [Header("Components")]
         [SerializeField] private CharacterController _controller;
 
-        [Header("Movement Settings")] 
+        [Header("Movement Settings")]
         [SerializeField] private float _speed = 12f;
 
-        [Header("Gravity Settings")] 
+        [Header("Gravity Settings")]
         [SerializeField] private float _gravityMultiplier = 1f;
 
         [Header("GroundCheck Settings")]
         [SerializeField] private Transform _groundCheckTransform;
-
-        [SerializeField] private float _groundDistance = 0.4f;
+        [SerializeField] private float _groundDistance = 0.1f;
         [SerializeField] private LayerMask _groundMask;
 
-        [Header("Jump Settings")] 
+        [Header("Jump Settings")]
         [SerializeField] private float _jumpHeight = 3f;
 
         private IInputService _inputService;
-
-        private Vector3 _velocity;
+        private Vector3 _fallVelocity;
         private Transform _cachedTransf;
-        private bool _isGrounded;
+
+        public Vector3 Move { get; private set; }
+        public bool IsGrounded { get; private set; }
+        public float VerticalVelocity { get; private set; }
 
         [Inject]
         public void Construct(IInputService inputService)
@@ -39,29 +40,31 @@ namespace Platformer.Game.Player
         private void Awake()
         {
             _cachedTransf = transform;
+            IsGrounded = true;
         }
 
         private void Update()
         {
-            _isGrounded = Physics.CheckSphere(_groundCheckTransform.position, _groundDistance, _groundMask);
+            IsGrounded = Physics.CheckSphere(_groundCheckTransform.position, _groundDistance, _groundMask);
 
-            if (_isGrounded && _velocity.y < 0)
+            if (IsGrounded && _fallVelocity.y < 0)
             {
-                _velocity.y = -2f;
+                _fallVelocity.y = -2f;
             }
 
             Vector2 moveAxis = _inputService.MoveAxis;
 
-            Vector3 move = _cachedTransf.right * moveAxis.x + _cachedTransf.forward * moveAxis.y;
-            _controller.Move(move * _speed * Time.deltaTime);
+            Move = (_cachedTransf.right * moveAxis.x + _cachedTransf.forward * moveAxis.y) * _speed;
+            _controller.Move(Move * Time.deltaTime);
 
-            if (_inputService.IsJump && _isGrounded)
+            if (_inputService.IsJump && IsGrounded)
             {
-                _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * Physics.gravity.y);
+                _fallVelocity.y = Mathf.Sqrt(_jumpHeight * -2f * Physics.gravity.y);
             }
 
-            _velocity += Physics.gravity * _gravityMultiplier * Time.deltaTime;
-            _controller.Move(_velocity * Time.deltaTime);
+            _fallVelocity += Physics.gravity * _gravityMultiplier * Time.deltaTime;
+            _controller.Move(_fallVelocity * Time.deltaTime);
+            VerticalVelocity = _fallVelocity.y;
         }
     }
 }

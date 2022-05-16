@@ -32,7 +32,7 @@ namespace Platformer.Game.Player
             
 
             _xRotation -= mouseY;
-            _xRotation = Mathf.Clamp(_xRotation, -90, 90);
+            _xRotation = Mathf.Clamp(_xRotation, -90, 80);
 
             _playerBody.Rotate(Vector3.up * mouseX);
             transform.localRotation = Quaternion.Euler(_xRotation, 0f, 0f);

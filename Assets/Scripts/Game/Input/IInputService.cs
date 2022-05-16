@@ -8,6 +8,8 @@ namespace Platformer.Game.Input
         Vector2 MouseAxis { get; }
         bool IsJump { get; }
 
+        bool IsCamToggle { get; }
+
         void SetLocked(bool isLocked);
     }
 }
