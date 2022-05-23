@@ -1,4 +1,4 @@
-namespace Platformer.Utility.Constants
+namespace Platformer.Game.Utility.Constants
 {
     public static class Tags
     {

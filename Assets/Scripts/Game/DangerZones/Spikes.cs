@@ -1,5 +1,5 @@
 using Platformer.Game.Player;
-using Platformer.Utility.Constants;
+using Platformer.Game.Utility.Constants;
 using UnityEngine;
 
 namespace Platformer.Game.DangerZones

@@ -6,6 +6,7 @@ namespace Platformer.Game.Input
     {
         Vector2 MoveAxis { get; }
         Vector2 MouseAxis { get; }
+        bool IsAttackUp { get; }
         bool IsJump { get; }
 
         bool IsCamToggle { get; }

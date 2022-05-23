@@ -29,7 +29,7 @@ namespace Platformer.Game.Input
         }
 
         public bool IsJump => !_isLocked && UnityEngine.Input.GetButtonDown("Jump");
-
+        public bool IsAttackUp => !_isLocked && UnityEngine.Input.GetButtonUp("Fire1");
         public bool IsCamToggle => !_isLocked && UnityEngine.Input.GetButtonDown("CamToggle");
 
         public void SetLocked(bool isLocked) =>

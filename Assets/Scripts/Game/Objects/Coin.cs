@@ -1,6 +1,6 @@
 using Platformer.Game.Info.Animations;
 using Platformer.Game.Player;
-using Platformer.Utility.Constants;
+using Platformer.Game.Utility.Constants;
 using UnityEngine;
 
 namespace Platformer.Game.Objects
