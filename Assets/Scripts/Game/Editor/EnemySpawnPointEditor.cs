@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace Platformer.Game.Editor
 {
-    [CustomEditor(typeof(EnemySpawner))]
+    [CustomEditor(typeof(EnemySpawnPoint))]
     public class EnemySpawnPointEditor : UnityEditor.Editor
     {
         [DrawGizmo(GizmoType.Active | GizmoType.Pickable | GizmoType.NonSelected)]
-        public static void DrawGizmo(EnemySpawner component, GizmoType gizmoType)
+        public static void DrawGizmo(EnemySpawnPoint component, GizmoType gizmoType)
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawSphere(component.transform.position, .3f);

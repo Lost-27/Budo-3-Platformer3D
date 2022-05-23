@@ -9,6 +9,7 @@ namespace Platformer.Game.Core
         int CurrentHp { get; }
         int MaxHp { get; }
         
+        void Setup(int current, int max);
         void AddLife(int healthPoints);
     }
 }

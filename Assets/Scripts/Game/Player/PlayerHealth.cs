@@ -37,6 +37,10 @@ namespace Platformer.Game.Player
             OnChanged?.Invoke();
         }
 
+        public void Setup(int current, int max)
+        {
+        }
+
         public void AddLife(int healthPoints)
         {
             if (CurrentHp >= _maxHp)
