@@ -3,6 +3,8 @@ using Platformer.Game.Services.Currency;
 using Platformer.Game.Services.Factory;
 using Platformer.Game.Services.Pause;
 using Platformer.Game.Services.StaticData;
+using Platformer.Infrastructure.Persistent;
+using Platformer.Infrastructure.SaveLoad;
 using Zenject;
 
 namespace Platformer.Game
@@ -16,6 +18,8 @@ namespace Platformer.Game
             PauseServiceInstaller.Install(Container);
             StaticDataServiceInstaller.Install(Container);
             GameFactoryInstaller.Install(Container);
+            PersistentServiceInstaller.Install(Container);
+            SaveLoadServiceInstaller.Install(Container);
         }
     }
 }

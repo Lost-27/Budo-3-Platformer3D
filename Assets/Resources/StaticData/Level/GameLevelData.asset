@@ -16,7 +16,10 @@ MonoBehaviour:
   EnemySpawnPoints:
   - EnemyType: 1
     Position: {x: -8.76, y: 1, z: -67.93}
+    Id: Spawn_42ba35d0-a375-4fec-b4db-dbe1ffd8aff9
   - EnemyType: 1
     Position: {x: -2.76, y: 1, z: -63.4}
+    Id: Spawn_858d6b11-b597-4996-bafc-f7e71e13e043
   - EnemyType: 1
     Position: {x: -7.4, y: 1, z: -58.7}
+    Id: Spawn_37e28414-5b3e-437f-a409-c894eb1b8963

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1615603041310059551}
   - component: {fileID: 1615603041310059537}
   - component: {fileID: 1615603041310059538}
+  - component: {fileID: 3078936158366098139}
   m_Layer: 7
   m_Name: Chomper
   m_TagString: Enemy
@@ -29,7 +30,6 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.73, y: 1, z: 1.82}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1615603040189323749}
   m_Father: {fileID: 0}
@@ -78,6 +78,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _current: 10
   _max: 10
+--- !u!114 &3078936158366098139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1615603041310059539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 994f1ee67493d7d4ca62470e4a824640, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1615603040188924775
 PrefabInstance:
   m_ObjectHideFlags: 0
