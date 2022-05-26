@@ -13,9 +13,9 @@ namespace Platformer.Infrastructure.StateMachine.States
             _stateMachine = stateMachine;
         }
 
-        public void Enter()
+        public async void Enter()
         {
-            _sceneLoader.LoadScene(SceneName.Menu);
+             await _sceneLoader.LoadSceneAsync( SceneName.Menu);
             _stateMachine.Enter<MenuState>();
         }
 

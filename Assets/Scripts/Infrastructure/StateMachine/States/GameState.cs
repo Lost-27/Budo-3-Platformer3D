@@ -33,9 +33,9 @@ namespace Platformer.Infrastructure.StateMachine.States
             _stateMachine.Enter<StartLoadingGameState>();
         }
 
-        private void MenuButtonClicked()
+        private async void MenuButtonClicked()
         {
-            _sceneLoader.LoadScene(SceneName.Menu);
+            await _sceneLoader.LoadSceneAsync(SceneName.Menu);
             _stateMachine.Enter<MenuState>();
         }
     }

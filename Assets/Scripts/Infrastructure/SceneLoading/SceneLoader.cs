@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using Zenject;
 
 namespace Platformer.Infrastructure.SceneLoading
@@ -10,8 +11,8 @@ namespace Platformer.Infrastructure.SceneLoading
         {
             _sceneLoader = sceneLoader;
         }
-
-        public void LoadScene(string sceneName) =>
-            _sceneLoader.LoadScene(sceneName);
+        
+        public async UniTask LoadSceneAsync(string sceneName) => 
+            await _sceneLoader.LoadSceneAsync(sceneName).ToUniTask();
     }
 }

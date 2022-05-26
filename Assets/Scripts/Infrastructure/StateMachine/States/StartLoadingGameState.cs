@@ -11,34 +11,28 @@ namespace Platformer.Infrastructure.StateMachine.States
         private readonly ILoadingScreen _loadingScreen;
         private readonly IAppStateMachine _stateMachine;
         private readonly ISceneLoader _sceneLoader;
-        private readonly ICoroutineRunner _coroutineRunner;
 
         public StartLoadingGameState(ILoadingScreen loadingScreen, IAppStateMachine stateMachine,
-            ISceneLoader sceneLoader, ICoroutineRunner coroutineRunner)
+            ISceneLoader sceneLoader)
         {
             _loadingScreen = loadingScreen;
             _stateMachine = stateMachine;
             _sceneLoader = sceneLoader;
-            _coroutineRunner = coroutineRunner;
         }
 
-        public void Enter()
+        public async void Enter()
         {
             _loadingScreen.Show();
-            _coroutineRunner.StartCoroutine(EnterWithDelay());
+
+            await _sceneLoader.LoadSceneAsync(SceneName.Game);
+            
+            _stateMachine.Enter<EndLoadingGameState>();
+
         }
 
         public void Exit()
         {
         }
 
-        private IEnumerator EnterWithDelay()
-        {
-            _sceneLoader.LoadScene(SceneName.Game);
-
-            yield return new WaitForSeconds(1f);
-
-            _stateMachine.Enter<EndLoadingGameState>();
-        }
     }
 }
