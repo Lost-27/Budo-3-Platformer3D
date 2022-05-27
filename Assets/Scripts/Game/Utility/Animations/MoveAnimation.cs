@@ -1,7 +1,7 @@
 using DG.Tweening;
 using UnityEngine;
 
-namespace Platformer.Game.Info.Animations
+namespace Platformer.Game.Utility.Animations
 {
     public class MoveAnimation : MonoBehaviour
     {
@@ -21,7 +21,7 @@ namespace Platformer.Game.Info.Animations
 
         private void StartAnimation()
         {
-            Sequence sequence = DOTween.Sequence().SetEase(Ease.Flash).SetLoops(-1);
+            Sequence sequence = DOTween.Sequence().SetEase(Ease.Flash).SetLoops(-1).SetUpdate(UpdateType.Fixed, false);
             sequence.Append(transform.DOMove(_endPos, _moveToEndDuration));
             sequence.AppendInterval(_endPosDelay);
             sequence.Append(transform.DOMove(_startPos, _moveToStartDuration));

@@ -1,5 +1,5 @@
-using Platformer.Game.Info.Animations;
 using Platformer.Game.Player;
+using Platformer.Game.Utility.Animations;
 using Platformer.Game.Utility.Constants;
 using UnityEngine;
 
